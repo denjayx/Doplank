@@ -19,11 +19,6 @@ struct RootTabView: View {
                 .tabItem {
                     Label("Sessions", systemImage: "list.bullet")
                 }
-//
-//            HelpView()
-//                .tabItem {
-//                    Label("Help", systemImage: "book.pages")
-//                }
         }
 		.tint(.orangeBrand)
     }

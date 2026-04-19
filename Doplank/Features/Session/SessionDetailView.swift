@@ -18,21 +18,22 @@ struct SessionDetailView: View {
                 // Date Title (Custom Large Title)
                 HStack {
                     Text(formatDate(result.date))
-						.frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity)
                         .font(.title.bold())
-						.padding(.bottom, 16)
+                        .padding(.bottom, 16)
+					
                     Spacer()
                 }
 
                 // Section 1: Total Time
                 VStack(alignment: .leading, spacing: 8) {
                     TotalTimeCardView(totalSeconds: result.totalSeconds)
-                        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+                        .cardStyle()
                 }
 
                 // Section 2: Breakdown
                 VStack(spacing: 0) {
-                    BreakdownRowView(
+                    SessionMetricRowView(
                         seconds: result.stableSeconds,
                         label: "Stable Hold",
                         color: .green,
@@ -44,7 +45,7 @@ struct SessionDetailView: View {
                     Divider()
                         .padding(.leading, 16)
 
-                    BreakdownRowView(
+                    SessionMetricRowView(
                         seconds: result.breakSeconds,
                         label: "Form Break",
                         color: .orange,
@@ -53,7 +54,7 @@ struct SessionDetailView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 12)
                 }
-                .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+                .cardStyle()
             }
             .padding(.top, 16)
             .padding(.horizontal)
@@ -61,10 +62,9 @@ struct SessionDetailView: View {
         .background(Color(uiColor: .systemGroupedBackground))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            // Ini akan selalu diam di tengah atas (inline)
             ToolbarItem(placement: .principal) {
                 Text("Session Result")
-					.font(.headline)
+                    .font(.headline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.secondary)
             }
@@ -85,74 +85,8 @@ struct SessionDetailView: View {
     
     private func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
-        // Format cantik & pendek: "14 Apr 2026 • 15:20" atau "Apr 14 • 03:20 PM"
         formatter.dateFormat = "d MMM yyyy, HH:mm"
         return formatter.string(from: date)
-    }
-}
-
-// MARK: - Subviews
-
-struct TotalTimeCardView: View {
-    let totalSeconds: Int
-    
-    var body: some View {
-        VStack(spacing: 12) {
-            Text("You've been plank for")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-
-            HStack(alignment: .lastTextBaseline, spacing: 12) {
-                TimeUnitView(value: totalSeconds / 60, label: "m")
-                TimeUnitView(value: totalSeconds % 60, label: "s")
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 12)
-    }
-}
-
-struct TimeUnitView: View {
-    let value: Int
-    let label: String
-    
-    var body: some View {
-        HStack(spacing: 2) {
-            Text(String(format: "%02d", value))
-                .font(.system(size: 56).bold())
-            
-            Text(label)
-                .font(.title2)
-        }
-        .opacity(value == 0 ? 0.4 : 1.0)
-    }
-}
-
-struct BreakdownRowView: View {
-    let seconds: Int
-    let label: String
-    let color: Color
-    let isDimmed: Bool
-    
-    var body: some View {
-        HStack {
-            HStack(alignment: .lastTextBaseline, spacing: 3) {
-                Text("\(seconds)")
-                    .font(.title.bold().monospacedDigit())
-                    .foregroundStyle(isDimmed ? .secondary : .primary)
-
-                Text("s")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.secondary)
-            }
-
-            Spacer()
-
-            Text(label)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(color)
-        }
-        .padding(.vertical, 4)
     }
 }
 
@@ -160,7 +94,6 @@ struct BreakdownRowView: View {
 
 #Preview("Session Detail") {
     NavigationStack {
-        // Dummy data ditulis langsung (inline) di sini agar lebih mudah dipahami & diubah nilainya
         SessionDetailView(
             result: SessionResult(date: Date(), totalSeconds: 58, stableSeconds: 54, breakSeconds: 4),
             onDone: {}
