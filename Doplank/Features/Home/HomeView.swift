@@ -19,7 +19,9 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing: 24) {
                 Image(systemName: "figure.core.training")
-                    .font(.system(size: 80))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 80)
                     .foregroundStyle(Color.orangeBrand)
 
                 VStack(spacing: 8) {

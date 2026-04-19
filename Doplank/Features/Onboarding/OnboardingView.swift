@@ -26,10 +26,10 @@ struct OnboardingView: View {
                 // Title Area
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Stop guessing.")
-                        .font(.system(size: 38, weight: .bold))
+                        .font(.largeTitle.bold())
                         .foregroundColor(Color(red: 0.95, green: 0.55, blue: 0.2))
                     Text("Start planking right.")
-                        .font(.system(size: 38, weight: .bold))
+                        .font(.largeTitle.bold())
                         .foregroundColor(.white)
                 }
                 .padding(.bottom, 36)
@@ -43,10 +43,10 @@ struct OnboardingView: View {
                                 .frame(width: 44, height: 44)
                             Image(systemName: "video.fill")
                                 .foregroundColor(.white)
-                                .font(.system(size: 16, weight: .bold))
+                                .font(.callout.bold())
                         }
                         Text("We watch your form.")
-                            .font(.system(size: 18, weight: .medium))
+                            .font(.headline)
                             .foregroundColor(.white)
                     }
                     
@@ -57,10 +57,10 @@ struct OnboardingView: View {
                                 .frame(width: 44, height: 44)
                             Image(systemName: "person.fill.checkmark")
                                 .foregroundColor(.white)
-                                .font(.system(size: 16, weight: .bold))
+                                .font(.callout.bold())
                         }
                         Text("We fix it in real time.")
-                            .font(.system(size: 18, weight: .medium))
+                            .font(.headline)
                             .foregroundColor(.white)
                     }
                 }
@@ -68,7 +68,7 @@ struct OnboardingView: View {
                 
                 // Description Text
                 Text("Place your device, get into plank position, and hold steady. The timer starts automatically, with voice guidance to help you maintain proper form.")
-                    .font(.system(size: 16, weight: .regular))
+                    .font(.callout)
                     .foregroundColor(.white.opacity(0.9))
                     .lineSpacing(4)
                     .padding(.bottom, 48)
@@ -78,7 +78,7 @@ struct OnboardingView: View {
                     onGetStarted()
                 }) {
                     Text("Get Started")
-                        .font(.system(size: 18, weight: .bold))
+                        .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)

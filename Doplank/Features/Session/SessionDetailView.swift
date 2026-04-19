@@ -13,17 +13,21 @@ struct SessionDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 28) {
-                
+            VStack(spacing: 12) {
+
+                // Date Title (Custom Large Title)
+                HStack {
+                    Text(formatDate(result.date))
+						.frame(maxWidth: .infinity)
+                        .font(.title.bold())
+						.padding(.bottom, 16)
+                    Spacer()
+                }
+
                 // Section 1: Total Time
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Session Result")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.leading, 16)
-                    
                     TotalTimeCardView(totalSeconds: result.totalSeconds)
-                        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
                 }
 
                 // Section 2: Breakdown
@@ -49,15 +53,22 @@ struct SessionDetailView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 12)
                 }
-                .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
             }
             .padding(.top, 16)
             .padding(.horizontal)
         }
         .background(Color(uiColor: .systemGroupedBackground))
-        .navigationTitle(formatDate(result.date))
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // Ini akan selalu diam di tengah atas (inline)
+            ToolbarItem(placement: .principal) {
+                Text("Session Result")
+					.font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.secondary)
+            }
+            
             if let onDone {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
@@ -74,7 +85,8 @@ struct SessionDetailView: View {
     
     private func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "ddMMyyyyhh:mma"
+        // Format cantik & pendek: "14 Apr 2026 • 15:20" atau "Apr 14 • 03:20 PM"
+        formatter.dateFormat = "d MMM yyyy, HH:mm"
         return formatter.string(from: date)
     }
 }
@@ -105,15 +117,14 @@ struct TimeUnitView: View {
     let label: String
     
     var body: some View {
-        HStack(alignment: .lastTextBaseline, spacing: 3) {
+        HStack(spacing: 2) {
             Text(String(format: "%02d", value))
-                .font(.system(size: 64, weight: .bold, design: .rounded))
-                .monospacedDigit()
-
+                .font(.system(size: 56).bold())
+            
             Text(label)
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.secondary)
+                .font(.title2)
         }
+        .opacity(value == 0 ? 0.4 : 1.0)
     }
 }
 
