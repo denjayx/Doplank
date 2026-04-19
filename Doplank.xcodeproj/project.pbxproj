@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		984BB8F22F88E2CC0091F3EA /* Doplank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doplank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		984BB8F22F88E2CC0091F3EA /* FirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		984BB8F42F88E2CC0091F3EA /* Doplank */ = {
+		984BB8F42F88E2CC0091F3EA /* FirstApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Doplank;
+			path = FirstApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		984BB8E92F88E2CC0091F3EA = {
 			isa = PBXGroup;
 			children = (
-				984BB8F42F88E2CC0091F3EA /* Doplank */,
+				984BB8F42F88E2CC0091F3EA /* FirstApp */,
 				984BB8F32F88E2CC0091F3EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		984BB8F32F88E2CC0091F3EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				984BB8F22F88E2CC0091F3EA /* Doplank.app */,
+				984BB8F22F88E2CC0091F3EA /* FirstApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		984BB8F12F88E2CC0091F3EA /* Doplank */ = {
+		984BB8F12F88E2CC0091F3EA /* FirstApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 984BB8FD2F88E2CD0091F3EA /* Build configuration list for PBXNativeTarget "Doplank" */;
+			buildConfigurationList = 984BB8FD2F88E2CD0091F3EA /* Build configuration list for PBXNativeTarget "FirstApp" */;
 			buildPhases = (
 				984BB8EE2F88E2CC0091F3EA /* Sources */,
 				984BB8EF2F88E2CC0091F3EA /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				984BB8F42F88E2CC0091F3EA /* Doplank */,
+				984BB8F42F88E2CC0091F3EA /* FirstApp */,
 			);
-			name = Doplank;
+			name = FirstApp;
 			packageProductDependencies = (
 			);
 			productName = Doplank;
-			productReference = 984BB8F22F88E2CC0091F3EA /* Doplank.app */;
+			productReference = 984BB8F22F88E2CC0091F3EA /* FirstApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 984BB8ED2F88E2CC0091F3EA /* Build configuration list for PBXProject "Doplank" */;
+			buildConfigurationList = 984BB8ED2F88E2CC0091F3EA /* Build configuration list for PBXProject "FirstApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				984BB8F12F88E2CC0091F3EA /* Doplank */,
+				984BB8F12F88E2CC0091F3EA /* FirstApp */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		984BB8ED2F88E2CC0091F3EA /* Build configuration list for PBXProject "Doplank" */ = {
+		984BB8ED2F88E2CC0091F3EA /* Build configuration list for PBXProject "FirstApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				984BB8FB2F88E2CD0091F3EA /* Debug */,
@@ -322,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		984BB8FD2F88E2CD0091F3EA /* Build configuration list for PBXNativeTarget "Doplank" */ = {
+		984BB8FD2F88E2CD0091F3EA /* Build configuration list for PBXNativeTarget "FirstApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				984BB8FE2F88E2CD0091F3EA /* Debug */,
