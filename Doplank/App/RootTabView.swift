@@ -1,5 +1,5 @@
 //
-//  MainTabView.swift
+//  RootTabView.swift
 //  Doplank
 //
 //  Created by Deni Wijaya on 17/04/26.
@@ -7,26 +7,28 @@
 
 import SwiftUI
 
-struct MainContainerView: View {
+struct RootTabView: View {
     var body: some View {
         TabView {
             HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+
             SessionListView()
                 .tabItem {
-                    Label("History", systemImage: "list.bullet")
+                    Label("Sessions", systemImage: "list.bullet")
                 }
-            HelpView()
-                .tabItem {
-                    Label("Help", systemImage: "book.pages")
-                }
+//
+//            HelpView()
+//                .tabItem {
+//                    Label("Help", systemImage: "book.pages")
+//                }
         }
-        .tint(Color.orange)
+		.tint(.orangeBrand)
     }
 }
 
 #Preview {
-    MainContainerView()
+    RootTabView()
 }

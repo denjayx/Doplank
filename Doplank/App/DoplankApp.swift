@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct DoplankApp: App {
+    @UIApplicationDelegateAdaptor(AppOrientationDelegate.self) private var appDelegate
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                MainTabView()
-            }
+            ContentView()
         }
     }
 }
